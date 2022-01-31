@@ -1,0 +1,59 @@
+<div class="login-body">
+  <div class="login-wrapper">
+    <div class="login-panel" [formGroup]="form">
+      <a class="logo">
+        <h4>Prueba Frontend</h4>
+      </a>
+      <input
+        pInputText
+        id="email"
+        placeholder="Email"
+        [class.is-invalid]="onInvalidField('email')"
+        formControlName="email"
+      />
+      <span
+        *ngIf="onValidator('email', 'pattern')"
+        style="color: red; letter-spacing: 0px; margin-top:-10px; margin-bottom: 10px; font-size: 9px;"
+      >
+        Formato email incorrecto
+      </span>
+      <span
+        *ngIf="onValidator('email', 'required')"
+        style="color: red; letter-spacing: 0px; margin-top:-10px; margin-bottom: 10px; font-size: 9px;"
+      >
+        Campo requerido
+      </span>
+
+      <input
+        id="password"
+        placeholder="Password"
+        [class.is-invalid]="onInvalidField('password')"
+        formControlName="password"
+      />
+      <span
+        *ngIf="onValidator('password', 'required')"
+        style="color: red; letter-spacing: 0px; margin-top:-10px; margin-bottom: 10px; font-size: 9px;"
+      >
+        Campo requerido
+      </span>
+
+      <button
+        pButton
+        pRipple
+        label="LOGIN"
+        type="button"
+        (click)="onLogin()"
+      ></button>
+      <span
+        class="text-danger small my-3"
+        *ngIf="error"
+        style="color: red; letter-spacing: 0px;"
+      >
+        {{error}}
+      </span>
+    </div>
+    <div class="login-footer">
+      <h6>RuthReyes Ⓒ 2022</h6>
+    </div>
+  </div>
+</div>
